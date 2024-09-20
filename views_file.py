@@ -1,5 +1,5 @@
-from backend_lab_1 import app  # Імпортуємо існуючий об'єкт app
+from . import app
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+@app.route('/')
+def hello():
+    return "Hello, World!"
