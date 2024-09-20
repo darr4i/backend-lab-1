@@ -1,5 +1,11 @@
 from . import app
 
-@app.route('/')
-def hello():
-    return "Hello, World!"
+from flask import jsonify
+from datetime import datetime
+
+@app.route('/healthcheck', methods=['GET'])
+def healthcheck():
+    return jsonify({
+        'status': 'OK',
+        'timestamp': datetime.utcnow().isoformat()
+    }), 200
