@@ -30,9 +30,11 @@
 6. Встановити Flask:
     pip install flask
 7. Записати всі залежності в requirements.txt:
+   ```bash
    pip freeze > requirements.txt
 8. Створити папку для модуля проекту та файли __init__.py та views.py.
 9. У файлі __init__.py створити змінну app та імпортувати файли:
+   ```bash
     from flask import Flask
 
     app = Flask(__name__)
@@ -44,25 +46,29 @@
 ## Налаштування Docker
 1. Встановити Docker з офіційного сайту.
 2. Створити Dockerfile:
+   ```bash
    FROM python:3.12.2-slim-bullseye
 
-WORKDIR /app
+   WORKDIR /app
 
-COPY requirements.txt .
+   COPY requirements.txt .
 
-RUN python -m pip install -r requirements.txt
+   RUN python -m pip install -r requirements.txt
 
-COPY . /app
+   COPY . /app
 
-CMD flask --app <your_app_name> run -h 0.0.0.0 -p $PORT
+   CMD flask --app <your_app_name> run -h 0.0.0.0 -p $PORT
 
 3. Збілдити образ:
+   ```bash
   docker build . -t <image_name>:latest
 4. Запустити контейнер:
+   ```bash
   docker run -it --rm --network=host -e PORT=<your_port> <image_name>:latest
 
 ## Налаштування Docker Compose
 1. Створити docker-compose.yaml:
+```bash
 services:
   <app_name>:
     restart: always
@@ -74,6 +80,7 @@ services:
     ports:
       - "<your_port>:8080"
 2. Запустити:
+   ```bash
   docker-compose build
   docker-compose up
 
