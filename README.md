@@ -28,10 +28,13 @@
 5. Активувати віртуальне середовище:
     source ./env/bin/activate
 6. Встановити Flask:
+ ```bash
     pip install flask
+
 7. Записати всі залежності в requirements.txt:
    ```bash
    pip freeze > requirements.txt
+
 8. Створити папку для модуля проекту та файли __init__.py та views.py.
 9. У файлі __init__.py створити змінну app та імпортувати файли:
    ```bash
@@ -40,13 +43,14 @@
     app = Flask(__name__)
 
     import <your_app_module_name>.views
+
 10. Реалізувати ендпоінт healthcheck у views.py.
 11. Запустити застосунок:
 
 ## Налаштування Docker
 1. Встановити Docker з офіційного сайту.
 2. Створити Dockerfile:
-   ```bash
+```bash
    FROM python:3.12.2-slim-bullseye
 
    WORKDIR /app
@@ -60,10 +64,11 @@
    CMD flask --app <your_app_name> run -h 0.0.0.0 -p $PORT
 
 3. Збілдити образ:
-   ```bash
+```bash
   docker build . -t <image_name>:latest
+
 4. Запустити контейнер:
-   ```bash
+```bash
   docker run -it --rm --network=host -e PORT=<your_port> <image_name>:latest
 
 ## Налаштування Docker Compose
@@ -79,6 +84,7 @@ services:
       PORT: "<your_port>"
     ports:
       - "<your_port>:8080"
+
 2. Запустити:
    ```bash
   docker-compose build
