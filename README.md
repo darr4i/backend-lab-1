@@ -28,7 +28,7 @@
 5. Активувати віртуальне середовище:
     source ./env/bin/activate
 6. Встановити Flask:
- ```bash
+    ```bash
     pip install flask
 
 7. Записати всі залежності в requirements.txt:
@@ -50,7 +50,7 @@
 ## Налаштування Docker
 1. Встановити Docker з офіційного сайту.
 2. Створити Dockerfile:
-```bash
+   ```bash
    FROM python:3.12.2-slim-bullseye
 
    WORKDIR /app
@@ -64,16 +64,16 @@
    CMD flask --app <your_app_name> run -h 0.0.0.0 -p $PORT
 
 3. Збілдити образ:
-```bash
+   ```bash
   docker build . -t <image_name>:latest
 
 4. Запустити контейнер:
-```bash
+   ```bash
   docker run -it --rm --network=host -e PORT=<your_port> <image_name>:latest
 
 ## Налаштування Docker Compose
 1. Створити docker-compose.yaml:
-```bash
+   ```bash
 services:
   <app_name>:
     restart: always
