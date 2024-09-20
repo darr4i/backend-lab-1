@@ -65,30 +65,30 @@
 
 3. Збілдити образ:
    ```bash
-  docker build . -t <image_name>:latest
+     docker build . -t <image_name>:latest
 
 4. Запустити контейнер:
    ```bash
-  docker run -it --rm --network=host -e PORT=<your_port> <image_name>:latest
+     docker run -it --rm --network=host -e PORT=<your_port> <image_name>:latest
 
 ## Налаштування Docker Compose
 1. Створити docker-compose.yaml:
    ```bash
-services:
-  <app_name>:
-    restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      PORT: "<your_port>"
-    ports:
-      - "<your_port>:8080"
-
+   services:
+     <app_name>:
+       restart: always
+       build:
+         context: .
+         dockerfile: Dockerfile
+       environment:
+         PORT: "<your_port>"
+       ports:
+         - "<your_port>:8080"
+      
 2. Запустити:
    ```bash
-  docker-compose build
-  docker-compose up
+     docker-compose build
+     docker-compose up
 
 ## Деплой
 1. Зареєструватися на Render.com.
